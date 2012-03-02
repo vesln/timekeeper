@@ -1,0 +1,26 @@
+{
+    "name": "{project}"
+  , "version": "0.0.0"
+  , "description": "Description"
+  , "keywords": ["keyword"]
+  , "author": "Veselin Todorov <hi@vesln.com>"
+  , "dependencies": {
+  }
+  , "devDependencies": {
+      "mocha": "0.x.x"
+    , "chai": "*"
+    , "jack": "*"
+  }
+  , "repository" : {
+      "type" : "git"
+    , "url" : "http://github.com/vesln/{project}.git"
+  }
+  , "homepage": "http://github.com/vesln/{project}"
+  , "scripts": {
+      "test": "make test"
+  }
+  , "main": "./lib/{project}.js"
+  , "engines": { 
+      "node": ">= 0.6.0"
+  }
+}
