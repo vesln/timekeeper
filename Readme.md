@@ -14,6 +14,7 @@ Provides `travel` and `freeze` functionality for your Node.js tests.
 ```js
 var tk = require('timekeeper');
 var time = new Date(1330688329321); 
+
 tk.freeze(time);
 
 setTimeout(function() {
@@ -24,6 +25,7 @@ setTimeout(function() {
 	var ms = Date.now();
 
 	tk.reset(); // Reset.
+
 }, 500);
 ```
 
@@ -43,6 +45,7 @@ setTimeout(function() {
 	var ms = Date.now();
 
 	tk.reset(); // Reset.
+
 }, 500);
 ```
 
@@ -67,7 +70,7 @@ $ make test
 
 ## Credits
 
-Inspired by [timecop](https://github.com/jtrupiano/timecop) ruby gem.
+Inspired by the [timecop](https://github.com/jtrupiano/timecop) ruby gem.
 
 ## License
 
