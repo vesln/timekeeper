@@ -7,6 +7,12 @@
 This module mocks `Date` and `Date.now` in order to help you test time-dependent code.
 Provides `travel` and `freeze` functionality for your Node.js tests.
 
+## Features/problems
+
+- Please note, that if you are using time freezing, the `setTimeout` and
+  `setInteval` won't work as exepcted, since they are using the `Date`
+  class but the time will not change until you call `timekeeper#reset`.
+
 ## Synopsis
 
 ### Freeze:
@@ -17,16 +23,13 @@ var time = new Date(1330688329321);
 
 tk.freeze(time);
 
-setTimeout(function() {
+// The time hasn't changed at all.
 
-	// The time hasn't changed at all.
+var date = new Date;
+var ms = Date.now();
 
-	var date = new Date;
-	var ms = Date.now();
+tk.reset(); // Reset.
 
-	tk.reset(); // Reset.
-
-}, 500);
 ```
 
 ### Travel: 
