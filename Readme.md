@@ -4,9 +4,47 @@
 
 ## Description
 
-Easy testing of time-dependent code.
+This module mocks `Date` and `Date.now` in order to help you test time-dependent code.
+Provides `travel` and `freeze` functionality for your Node.js tests.
 
 ## Synopsis
+
+### Freeze:
+
+```js
+var tk = require('timekeeper');
+var time = new Date(1330688329321); 
+tk.freeze(time);
+
+setTimeout(function() {
+
+	// The time hasn't changed at all.
+
+	var date = new Date;
+	var ms = Date.now();
+
+	tk.reset(); // Reset.
+}, 500);
+```
+
+### Travel: 
+
+```js
+var tk = require('timekeeper');
+var time = new Date(1893448800000); // January 1, 2030 00:00:00
+
+tk.travel(time); // Travel to that date.
+
+setTimeout(function() {
+
+	// `time` + ~500 ms.
+
+	var date = new Date;
+	var ms = Date.now();
+
+	tk.reset(); // Reset.
+}, 500);
+```
 
 ## Requirements
 
@@ -26,6 +64,10 @@ $ cd timekeeper
 $ npm install
 $ make test
 ```
+
+## Credits
+
+Inspired by [timecop](https://github.com/jtrupiano/timecop) ruby gem.
 
 ## License
 
