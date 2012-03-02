@@ -32,14 +32,14 @@ describe('TimeKeeper', function() {
       });
 
       it('freezes the time create with `new Date` to the supplied one', function() {
-        sleep(50);
+        sleep(10);
         var date = new Date;
         date.getTime().should.eql(this.time.getTime());
         tk.reset();
       });
 
-      it('freezes the time create with `Date.new` to the supplied one', function() {
-        sleep(50);
+      it('freezes the time create with `Date#now` to the supplied one', function() {
+        sleep(10);
         Date.now().should.eql(this.time.getTime());
         tk.reset();
       });
@@ -54,7 +54,25 @@ describe('TimeKeeper', function() {
 
   describe('travel', function() {
     describe('when traveled', function() {
-      
+      describe('and used with `new Date`', function() {
+        it('should set the current date time to the supplied one', function() {
+          var time = new Date(1923701040000); // 2030
+          tk.travel(time);
+          sleep(10);
+          (new Date).getTime().should.be.greaterThan(1923701040000);
+          tk.reset();
+        });
+      });
+
+      describe('and used with `Date#now`', function() {
+        it('should set the current date time to the supplied one', function() {
+          var time = new Date(1923701040000); // 2030
+          tk.travel(time);
+          sleep(10);
+          Date.now().should.be.greaterThan(1923701040000);
+          tk.reset();
+        });
+      });
     });
   });
 });
