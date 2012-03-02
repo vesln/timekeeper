@@ -1,5 +1,5 @@
 /**
- * Time keeper - Easy time-dependent code tests
+ * Time keeper - Easy testing of time-dependent code.
  *
  * Veselin Todorov <hi@vesln.com>
  * MIT License.
@@ -9,8 +9,15 @@
  * Support
  */
 var should = require('chai').should();
-var jack = require('jack');
 
+/**
+ * Sleep implementation.
+ *
+ * Thanks to Stoyan Stefanov.
+ * http://www.phpied.com/sleep-in-javascript/
+ *
+ * @param {Number} Milliseconds.
+ */
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {

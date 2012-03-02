@@ -1,11 +1,9 @@
 {
-    "name": "{project}"
-  , "version": "0.0.0"
-  , "description": "Description"
-  , "keywords": ["keyword"]
+    "name": "timekeeper"
+	, "description": "Easy testing of time-dependent code."
+  , "version": "0.0.1"
+  , "keywords": ["fake date", "date test"]
   , "author": "Veselin Todorov <hi@vesln.com>"
-  , "dependencies": {
-  }
   , "devDependencies": {
       "mocha": "0.x.x"
     , "chai": "*"
@@ -13,14 +11,14 @@
   }
   , "repository" : {
       "type" : "git"
-    , "url" : "http://github.com/vesln/{project}.git"
+    , "url" : "http://github.com/vesln/timekeeper.git"
   }
-  , "homepage": "http://github.com/vesln/{project}"
+  , "homepage": "http://github.com/vesln/timekeeper"
   , "scripts": {
       "test": "make test"
   }
-  , "main": "./lib/{project}.js"
-  , "engines": { 
+  , "main": "./lib/timekeeper.js"
+  , "engines": {
       "node": ">= 0.6.0"
   }
 }
