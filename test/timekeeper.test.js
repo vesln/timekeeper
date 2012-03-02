@@ -21,7 +21,7 @@ function sleep(milliseconds) {
 /**
  * Context.
  */
-var tk = require('../lib/time_keeper');
+var tk = require('../lib/timekeeper');
 
 describe('TimeKeeper', function() {
   describe('freeze', function() {
@@ -54,22 +54,23 @@ describe('TimeKeeper', function() {
 
   describe('travel', function() {
     describe('when traveled', function() {
+      beforeEach(function() {
+        this.time = new Date(1923701040000); // 2030
+        tk.travel(this.time);
+        sleep(10);
+      });
+
       describe('and used with `new Date`', function() {
         it('should set the current date time to the supplied one', function() {
-          var time = new Date(1923701040000); // 2030
-          tk.travel(time);
-          sleep(10);
-          (new Date).getTime().should.be.greaterThan(1923701040000);
+          (new Date).getTime().should.be.greaterThan(this.time.getTime());
           tk.reset();
         });
       });
 
       describe('and used with `Date#now`', function() {
         it('should set the current date time to the supplied one', function() {
-          var time = new Date(1923701040000); // 2030
-          tk.travel(time);
           sleep(10);
-          Date.now().should.be.greaterThan(1923701040000);
+          Date.now().should.be.greaterThan(this.time.getTime());
           tk.reset();
         });
       });
