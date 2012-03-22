@@ -83,4 +83,10 @@ describe('TimeKeeper', function() {
       });
     });
   });
+
+  describe('inheritance', function() {
+    describe('should create an instance of Date', function() {
+      (new Date instanceof Date).should.be.eql(true);
+    });
+  });
 });
