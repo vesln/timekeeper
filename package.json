@@ -1,7 +1,7 @@
 {
     "name": "timekeeper"
 	, "description": "Easy testing of time-dependent code."
-  , "version": "0.0.2"
+  , "version": "0.0.3"
   , "keywords": ["fake date", "date test", "mocking date"]
   , "author": "Veselin Todorov <hi@vesln.com>"
   , "contributors": [
