@@ -52,6 +52,18 @@ setTimeout(function() {
 }, 500);
 ```
 
+### Reflection:
+
+```js
+var tk = require('timekeeper');
+var time = new Date(1893448800000); // January 1, 2030 00:00:00
+
+assertFalse(tk.isKeepingTime());
+tk.travel(time);
+assertTrue(tk.isKeepingTime());
+```
+
+
 ## Requirements
 
 - NPM (http://npmjs.org/)

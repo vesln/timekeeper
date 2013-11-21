@@ -89,4 +89,14 @@ describe('TimeKeeper', function() {
       (new Date instanceof Date).should.be.eql(true);
     });
   });
+
+  describe('reflection', function() {
+    it('should know if time is being modified', function() {
+      tk.isKeepingTime().should.be.eql(false);
+      tk.freeze(new Date(1330688329321));
+      tk.isKeepingTime().should.be.eql(true);
+      tk.reset();
+      tk.isKeepingTime().should.be.eql(false);
+    });
+  });
 });
