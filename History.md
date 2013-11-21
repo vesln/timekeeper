@@ -1,4 +1,9 @@
 
+0.0.4 / 2013-11-22
+==================
+
+  * Add an isKeepingTime() function for reflection
+
 0.0.3 / 2012-08-08
 ==================
 
