@@ -19,7 +19,7 @@ Provides `travel` and `freeze` functionality for your Node.js tests.
 
 ```js
 var tk = require('timekeeper');
-var time = new Date(1330688329321); 
+var time = new Date(1330688329321);
 
 tk.freeze(time);
 
@@ -32,7 +32,7 @@ tk.reset(); // Reset.
 
 ```
 
-### Travel: 
+### Travel:
 
 ```js
 var tk = require('timekeeper');
@@ -66,7 +66,7 @@ assertTrue(tk.isKeepingTime());
 
 ## Requirements
 
-- NPM (http://npmjs.org/)
+- npm (http://npmjs.org/)
 - Node.js (http://nodejs.org/)
 
 ## Install
