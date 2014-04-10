@@ -56,12 +56,20 @@ describe('TimeKeeper', function() {
         (new Date(1330688329320)).getTime().should.eql(1330688329320);
         tk.reset();
       });
+      it('should not get affected by date mutation', function() {
+        tk.freeze(this.time);
+        var start = new Date();
+        start.setDate(10);
+        (new Date()).getTime().should.eql(1330688329321);
+        tk.reset();
+      });
     });
   });
 
   describe('travel', function() {
     describe('when traveled', function() {
       beforeEach(function() {
+        tk.reset();
         this.time = new Date(1923701040000); // 2030
         tk.travel(this.time);
         sleep(10);
