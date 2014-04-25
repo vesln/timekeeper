@@ -1,3 +1,8 @@
+0.0.5 / 2014-04-24
+==================
+
+  * Add support for browser
+  * Add bower.json definition
 
 0.0.4 / 2013-11-22
 ==================
