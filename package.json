@@ -6,11 +6,13 @@
   , "author": "Veselin Todorov <hi@vesln.com>"
   , "contributors": [
         {"name": "Oleg Slobodskoi", "email": "oleg008@gmail.com"}
+      , {"name": "Guilherme Tramontina", "email": "guilherme.tramontina@gmail.com"}
     ]
   , "devDependencies": {
       "mocha": "0.x.x"
     , "chai": "*"
     , "jack": "*"
+    , "mocha-phantomjs": "*"
   }
   , "repository" : {
       "type" : "git"

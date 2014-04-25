@@ -6,11 +6,6 @@
  */
 
 /**
- * Support
- */
-var should = require('chai').should();
-
-/**
  * Sleep implementation.
  *
  * Thanks to Stoyan Stefanov.
@@ -24,11 +19,6 @@ function sleep(milliseconds) {
     if ((new Date().getTime() - start) > milliseconds) break;
   }
 };
-
-/**
- * Context.
- */
-var tk = require('../lib/timekeeper');
 
 describe('TimeKeeper', function() {
   describe('freeze', function() {
