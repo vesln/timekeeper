@@ -56,6 +56,20 @@ describe('TimeKeeper', function() {
         (new Date(1330688329320)).getTime().should.eql(1330688329320);
         tk.reset();
       });
+      
+      it('should not fire setTimeout functions', function(done) {
+        var called = false;
+        setTimeout( function() { 
+          called = true; 
+        }, 100 );
+        sleep( 120 );
+        tk.travel( this.time );
+        setTimeout( function() { 
+          called.should.be.eql( false ); 
+          done(); 
+        }, 1 );
+              
+      });
     });
   });
 
@@ -81,6 +95,22 @@ describe('TimeKeeper', function() {
           tk.reset();
         });
       });
+      
+      describe('and used with setTimeout', function() {
+        it('should reschedule functions scheduled with setTimeout', function( done ) {
+          var array = [];
+          setTimeout( function() { array.push( 1 ); }, 100 );  //t+50
+          tk.travel(new Date( this.time.getTime() - 200 ) );
+          setTimeout( function() { array.push( 2 ); }, 150 ); //t-50
+          tk.travel(new Date( this.time.getTime() - 450 ));
+          setTimeout( function() { array.push( 3 ); }, 200 ); //t-150
+          setTimeout( function() {
+            array.should.be.eql( [3, 2, 1] );
+            tk.reset();
+            done();
+          }, 1500 );
+        });
+      });
     });
   });
 
@@ -99,4 +129,6 @@ describe('TimeKeeper', function() {
       tk.isKeepingTime().should.be.eql(false);
     });
   });
+
+  
 });
