@@ -1,6 +1,8 @@
 TESTS = $(wildcard test/*.test.js)
 REPORTER = dot
 
+install:; @npm install
+
 test: test.node test.browser
 
 test.node:
