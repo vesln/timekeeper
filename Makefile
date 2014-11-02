@@ -1,9 +1,16 @@
 TESTS = $(wildcard test/*.test.js)
 REPORTER = dot
 
-test:
+test: test.node test.browser
+
+test.node:
 	@NODE_ENV=test ./node_modules/.bin/mocha \
+	  --require test/node.support \
 		--reporter $(REPORTER) \
 		$(TESTS)
 
-.PHONY: test
+test.browser:
+	@NODE_ENV=test ./node_modules/.bin/mocha-phantomjs test/index.html \
+		--reporter $(REPORTER)
+
+.PHONY: test test.node test.browser

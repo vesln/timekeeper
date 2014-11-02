@@ -8,19 +8,14 @@
         {"name": "Oleg Slobodskoi", "email": "oleg008@gmail.com"}
       , {"name": "Guilherme Tramontina", "email": "guilherme.tramontina@gmail.com"}
     ]
-  , "devDependencies": {
-      "mocha": "0.x.x"
-    , "chai": "*"
-    , "jack": "*"
-    , "mocha-phantomjs": "*"
-  }
-  , "repository" : {
-      "type" : "git"
-    , "url" : "http://github.com/vesln/timekeeper.git"
-  }
   , "homepage": "http://github.com/vesln/timekeeper"
-  , "scripts": {
-      "test": "make test"
-  }
   , "main": "./lib/timekeeper.js"
+  , "moduleType": ["globals", "node"]
+  , "license": "MIT"
+  , "ignore": [
+        "**/.*"
+      , "node_modules"
+      , "bower_components"
+      , "test"
+    ]
 }
