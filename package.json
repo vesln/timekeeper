@@ -1,26 +1,37 @@
 {
-    "name": "timekeeper"
-  , "description": "Easy testing of time-dependent code."
-  , "version": "0.0.5"
-  , "keywords": ["fake date", "date test", "mocking date"]
-  , "author": "Veselin Todorov <hi@vesln.com>"
-  , "contributors": [
-        {"name": "Oleg Slobodskoi", "email": "oleg008@gmail.com"}
-      , {"name": "Guilherme Tramontina", "email": "guilherme.tramontina@gmail.com"}
-    ]
-  , "devDependencies": {
-      "mocha": "0.x.x"
-    , "chai": "*"
-    , "jack": "*"
-    , "mocha-phantomjs": "*"
-  }
-  , "repository" : {
-      "type" : "git"
-    , "url" : "http://github.com/vesln/timekeeper.git"
-  }
-  , "homepage": "http://github.com/vesln/timekeeper"
-  , "scripts": {
-      "test": "make test"
-  }
-  , "main": "./lib/timekeeper.js"
+  "name": "timekeeper",
+  "description": "Easy testing of time-dependent code.",
+  "version": "0.0.5",
+  "keywords": [
+    "fake date",
+    "date test",
+    "mocking date"
+  ],
+  "author": "Veselin Todorov <hi@vesln.com>",
+  "contributors": [
+    {
+      "name": "Oleg Slobodskoi",
+      "email": "oleg008@gmail.com"
+    },
+    {
+      "name": "Guilherme Tramontina",
+      "email": "guilherme.tramontina@gmail.com"
+    }
+  ],
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "jack": "0.0.2",
+    "mocha": "^2.0.1",
+    "mocha-phantomjs": "^3.5.1",
+    "phantomjs": "^1.9.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/vesln/timekeeper.git"
+  },
+  "homepage": "http://github.com/vesln/timekeeper",
+  "scripts": {
+    "test": "make test"
+  },
+  "main": "./lib/timekeeper.js"
 }
