@@ -13,6 +13,11 @@ Provides `travel` and `freeze` functionality for your Node.js tests.
   `setInteval` won't work as exepcted, since they are using the `Date`
   class but the time will not change until you call `timekeeper#reset`.
 
+## Installation
+
+- NPM: `npm install timekeeper --save`
+- Bower: `bower install timekeeper`
+
 ## Synopsis
 
 ### Freeze:
