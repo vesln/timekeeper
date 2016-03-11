@@ -4,23 +4,12 @@
  * Veselin Todorov <hi@vesln.com>
  * MIT License.
  */
-
-/**
- * Sleep implementation.
- *
- * Thanks to Stoyan Stefanov.
- * http://www.phpied.com/sleep-in-javascript/
- *
- * @param {Number} Milliseconds.
- */
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds) break;
-  }
-};
-
 describe('TimeKeeper', function() {
+  // Wait 10ms
+  function wait(cb) {
+    setTimeout(cb, 10);
+  }
+
   describe('freeze', function() {
     describe('when frozen', function() {
       beforeEach(function() {
@@ -28,40 +17,70 @@ describe('TimeKeeper', function() {
         tk.freeze(this.time);
       });
 
-      it('freezes the time create with `new Date` to the supplied one', function() {
-        sleep(10);
-        var date = new Date;
-        date.getTime().should.eql(this.time.getTime());
+      afterEach(function() {
         tk.reset();
       });
 
-      it('freezes the time create with `Date#now` to the supplied one', function() {
-        sleep(10);
-        Date.now().should.eql(this.time.getTime());
-        tk.reset();
+      it('freezes the time create with `new Date` to the supplied one', function(done) {
+        var _this = this;
+
+        wait(function() {
+          var date = new Date;
+          date.getTime().should.eql(_this.time.getTime());
+          done();
+        });
+      });
+
+      it('freezes the time create with `Date#now` to the supplied one', function(done) {
+        var _this = this;
+
+        wait(function() {
+          Date.now().should.eql(_this.time.getTime());
+          done();
+        });
       });
 
       it('should not affect other date calls', function() {
         tk.freeze(this.time);
         (new Date(1330688329320)).getTime().should.eql(1330688329320);
-        tk.reset();
       });
 
       it('should return distinct frozen date objects', function() {
-				var date = new Date(), date1 = new Date();
+        (new Date()).should.not.equal(new Date());
+      });
+    });
 
-				date.should.not.equal(date1);
+    describe('when frozen', function() {
+      beforeEach(function() {
+        this.time = new Date(1330688329321);
+      });
+
+      afterEach(function() {
         tk.reset();
+      });
+
+      it('should only return the frozen time N times', function(done) {
+        var _this = this;
+
+        tk.freeze(this.time, { count: 1 });
+
+        wait(function() {
+          var date = new Date(), date1 = new Date();
+
+          date.getTime().should.equal(_this.time.getTime());
+          date1.getTime().should.be.greaterThan(_this.time.getTime());
+          done();
+        });
       });
     });
   });
 
   describe('travel', function() {
     describe('when traveled', function() {
-      beforeEach(function() {
+      beforeEach(function(done) {
         this.time = new Date(1923701040000); // 2030
         tk.travel(this.time);
-        sleep(10);
+        wait(done);
       });
 
       describe('and used with `new Date`', function() {
@@ -73,7 +92,6 @@ describe('TimeKeeper', function() {
 
       describe('and used with `Date#now`', function() {
         it('should set the current date time to the supplied one', function() {
-          sleep(10);
           Date.now().should.be.greaterThan(this.time.getTime());
           tk.reset();
         });
