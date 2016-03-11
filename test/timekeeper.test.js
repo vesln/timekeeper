@@ -72,6 +72,30 @@ describe('TimeKeeper', function() {
           done();
         });
       });
+
+      // This functionality doesn't work in browsers because there's no way to
+      // get filenames from a stack trace, so just skip it in browsers.
+      if(typeof window === 'undefined') {
+        it('should only return the frozen time in the correct stack file', function(done) {
+          var _this = this;
+
+          tk.freeze(this.time, { count: 1, file: 'test/timekeeper.test.js-NOT' });
+
+          wait(function() {
+            Date.now().should.not.equal(_this.time.getTime());
+
+            tk.reset();
+
+            tk.freeze(_this.time, { count: 1, file: 'test/timekeeper.test.js' });
+
+            wait(function() {
+              Date.now().should.equal(_this.time.getTime());
+              done();
+            });
+          });
+        });
+      }
+
     });
   });
 
