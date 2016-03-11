@@ -46,6 +46,13 @@ describe('TimeKeeper', function() {
         (new Date(1330688329320)).getTime().should.eql(1330688329320);
         tk.reset();
       });
+
+      it('should return distinct frozen date objects', function() {
+				var date = new Date(), date1 = new Date();
+
+				date.should.not.equal(date1);
+        tk.reset();
+      });
     });
   });
 
