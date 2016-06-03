@@ -28,23 +28,24 @@ describe('TimeKeeper', function() {
         tk.freeze(this.time);
       });
 
+      afterEach(function() {
+        tk.reset();
+      });
+
       it('freezes the time create with `new Date` to the supplied one', function() {
         sleep(10);
         var date = new Date;
         date.getTime().should.eql(this.time.getTime());
-        tk.reset();
       });
 
       it('freezes the time create with `Date#now` to the supplied one', function() {
         sleep(10);
         Date.now().should.eql(this.time.getTime());
-        tk.reset();
       });
 
       it('should not affect other date calls', function() {
         tk.freeze(this.time);
         (new Date(1330688329320)).getTime().should.eql(1330688329320);
-        tk.reset();
       });
     });
   });
@@ -57,10 +58,13 @@ describe('TimeKeeper', function() {
         sleep(10);
       });
 
+      afterEach(function() {
+        tk.reset();
+      });
+
       describe('and used with `new Date`', function() {
         it('should set the current date time to the supplied one', function() {
           (new Date).getTime().should.be.greaterThan(this.time.getTime());
-          tk.reset();
         });
       });
 
@@ -68,7 +72,6 @@ describe('TimeKeeper', function() {
         it('should set the current date time to the supplied one', function() {
           sleep(10);
           Date.now().should.be.greaterThan(this.time.getTime());
-          tk.reset();
         });
       });
     });
