@@ -1,6 +1,12 @@
-[![Build Status](https://secure.travis-ci.org/vesln/timekeeper.png)](http://travis-ci.org/vesln/timekeeper)
-
 # timekeeper
+[![travis][travis-image]][travis-url]
+[![npm][npm-image]][npm-url]
+
+[travis-image]: https://travis-ci.org/vesln/timekeeper.svg?branch=master
+[travis-url]: https://travis-ci.org/vesln/timekeeper
+
+[npm-image]: https://img.shields.io/npm/v/timekeeper.svg?style=flat
+[npm-url]: https://npmjs.org/package/timekeeper
 
 ## Description
 
@@ -9,13 +15,13 @@ Provides `travel` and `freeze` functionality for your Node.js tests.
 
 ## Features/problems
 
-- Please note, that if you are using time freezing, the `setTimeout` and
+- Please note, that if you are using time freezing, `setTimeout` and
   `setInteval` won't work as expected, since they are using the `Date`
-  class but the time will not change until you call `timekeeper#reset`.
+  class, but the time will not change until you call `timekeeper#reset`.
 
 ## Installation
 
-- NPM: `npm install timekeeper --save`
+- NPM: `npm install timekeeper --save-dev`
 - Bower: `bower install timekeeper`
 
 ## Synopsis
@@ -68,17 +74,10 @@ tk.travel(time);
 assertTrue(tk.isKeepingTime());
 ```
 
-
 ## Requirements
 
 - npm (http://npmjs.org/)
 - Node.js (http://nodejs.org/)
-
-## Install
-
-```
-$ npm install timekeeper
-```
 
 ## Tests
 
@@ -90,7 +89,7 @@ $ make test
 
 ## Credits
 
-Inspired by the [timecop](https://github.com/jtrupiano/timecop) ruby gem.
+Inspired by the [timecop](https://github.com/travisjeffery/timecop) ruby gem.
 
 ## License
 
