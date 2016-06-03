@@ -9,15 +9,10 @@
   ],
   "author": "Veselin Todorov <hi@vesln.com>",
   "contributors": [
-    {
-      "name": "Oleg Slobodskoi",
-      "email": "oleg008@gmail.com"
-    },
-    {
-      "name": "Guilherme Tramontina",
-      "email": "guilherme.tramontina@gmail.com"
-    }
+    "Oleg Slobodskoi <oleg008@gmail.com>",
+    "Guilherme Tramontina <guilherme.tramontina@gmail.com>"
   ],
+  "dependencies": {},
   "devDependencies": {
     "chai": "^1.9.2",
     "jack": "0.0.2",
@@ -26,11 +21,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/vesln/timekeeper.git"
+    "url": "git+ssh://git@github.com/vesln/timekeeper.git"
   },
   "homepage": "http://github.com/vesln/timekeeper",
   "scripts": {
     "test": "make test"
   },
-  "main": "./lib/timekeeper.js"
+  "main": "./lib/timekeeper.js",
+  "bugs": {
+    "url": "https://github.com/vesln/timekeeper/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "license": "MIT"
 }
