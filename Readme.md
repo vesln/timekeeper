@@ -8,8 +8,6 @@
 [npm-image]: https://img.shields.io/npm/v/timekeeper.svg?style=flat
 [npm-url]: https://npmjs.org/package/timekeeper
 
-## Description
-
 This module mocks `Date` and `Date.now` in order to help you test time-dependent code.
 Provides `travel` and `freeze` functionality for your Node.js tests.
 
