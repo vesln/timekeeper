@@ -23,7 +23,7 @@
     "jack": "0.0.2",
     "mocha": "^2.0.1",
     "mocha-phantomjs": "^3.5.1",
-    "phantomjs": "^1.9.12"
+    "phantomjs": "1.9.7-15"
   },
   "repository": {
     "type": "git",
