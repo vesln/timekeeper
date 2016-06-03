@@ -47,6 +47,13 @@ describe('TimeKeeper', function() {
         tk.freeze(this.time);
         (new Date(1330688329320)).getTime().should.eql(1330688329320);
       });
+
+      it('should be immutable', function() {
+        var firstDate = new Date();
+        firstDate.setFullYear(2001);
+        var secondDate = new Date();
+        secondDate.getFullYear().should.not.equal(2001);
+      })
     });
   });
 
