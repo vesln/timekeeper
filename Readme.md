@@ -91,7 +91,7 @@ simultaneously bump `package.json` and `bower.json`, create a new commit,
 and a version tag at the new commit.
 ```
 $ mversion <patch | minor | major>
-$ git push && git push --tags
+$ git push --follow-tags
 $ npm publish
 ```
 
