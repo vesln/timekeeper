@@ -14,7 +14,7 @@ Provides `travel` and `freeze` functionality for your Node.js tests.
 ## Features/problems
 
 - Please note, that if you are using time freezing, `setTimeout` and
-  `setInteval` won't work as expected, since they are using the `Date`
+  `setInterval` won't work as expected, since they are using the `Date`
   class, but the time will not change until you call `timekeeper#reset`.
 
 ## Installation
