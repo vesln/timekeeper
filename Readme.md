@@ -61,6 +61,8 @@ setTimeout(function() {
 }, 500);
 ```
 
+Note: If traveling when time is frozen, the time will be frozen to the new traveled time.
+
 ### Reflection:
 
 ```js

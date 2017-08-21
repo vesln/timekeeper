@@ -75,6 +75,36 @@ describe('TimeKeeper', function() {
         });
       });
     });
+
+    describe('when frozen', function() {
+      beforeEach(function() {
+        this.time = new Date(1330688329321);
+        tk.freeze(this.time);
+      });
+
+      afterEach(function() {
+        tk.reset();
+      });
+
+      it('freezes the time create with `new Date` to the supplied one', function(done) {
+        var newTime = new Date().getTime() + 100
+        tk.travel(newTime)
+        setTimeout(function() {
+          var date = new Date();
+          date.getTime().should.eql(newTime);
+          done();
+        }, 10, this.time);
+      });
+
+      it('freezes the time create with `Date#now` to the supplied one', function(done) {
+        var newTime = new Date().getTime() + 100
+        tk.travel(newTime)
+        setTimeout(function() {
+          Date.now().should.eql(newTime);
+          done();
+        }, 10, this.time);
+      });
+    });
   });
 
   describe('inheritance', function() {
