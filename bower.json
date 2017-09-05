@@ -1,7 +1,7 @@
 {
     "name": "timekeeper",
     "description": "Easy testing of time-dependent code.",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "keywords": [
         "fake date",
         "date test",
