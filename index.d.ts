@@ -1,7 +1,7 @@
 export as namespace timekeeper;
 
 interface Timekeeper {
-  freeze(): void;
+  freeze(date?: Date): void;
   travel(date: Date): void;
   reset(): void;
   isKeepingTime(): boolean;
