@@ -5,6 +5,7 @@ interface Timekeeper {
   travel(date: Date | number | string): void;
   reset(): void;
   isKeepingTime(): boolean;
+  withFreeze<T>(date: Date | number | string, callback: ()=>T): T;
 }
 
 declare const timekeeper: Timekeeper;
