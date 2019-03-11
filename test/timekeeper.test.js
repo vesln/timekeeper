@@ -107,6 +107,56 @@ describe('TimeKeeper', function() {
     });
   });
 
+  describe('withFreeze', function() {
+    it('should freeze and reset', function() {
+      tk.withFreeze(new Date(), function() {
+        tk.isKeepingTime().should.be.eql(true);
+      });
+      tk.isKeepingTime().should.be.eql(false);
+    });
+
+    it('should freeze and reset with error', function() {
+      try {
+        tk.withFreeze(new Date(), function () {
+          throw new Error("error on purpose");
+        });
+      } catch (err) {
+        // Ignore the error
+      } finally {
+        tk.isKeepingTime().should.be.eql(false);
+      }
+    });
+
+    if(typeof Promise !== 'undefined') {
+      it('should freeze and reset with async function', function () {
+        tk.withFreeze(new Date(), function () {
+          return new Promise(function (resolve, reject) {
+            tk.isKeepingTime().should.be.eql(true);
+            resolve(12345);
+          });
+        }).then(function (res) {
+          res.should.be.eql(12345);
+          tk.isKeepingTime().should.be.eql(false);
+        });
+      });
+
+      it('should freeze and reset with async function and error', function () {
+        tk.withFreeze(new Date(), function () {
+          return new Promise(function (resolve, reject) {
+            tk.isKeepingTime().should.be.eql(true);
+            reject(new Error("error on purpose"));
+          });
+        }).catch(function (err) {
+          tk.isKeepingTime().should.be.eql(false);
+        });
+      });
+    }
+
+    afterEach(function() {
+      tk.reset();
+    });
+  });
+
   describe('inheritance', function() {
     describe('should create an instance of Date', function() {
       (new Date instanceof Date).should.be.eql(true);
