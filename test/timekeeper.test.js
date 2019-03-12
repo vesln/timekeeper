@@ -115,6 +115,14 @@ describe('TimeKeeper', function() {
       tk.isKeepingTime().should.be.eql(false);
     });
 
+    it('should freeze and reset when returning null', function() {
+      tk.withFreeze(new Date(), function() {
+        tk.isKeepingTime().should.be.eql(true);
+        return null;
+      });
+      tk.isKeepingTime().should.be.eql(false);
+    });
+
     it('should freeze and reset with error', function() {
       try {
         tk.withFreeze(new Date(), function () {
