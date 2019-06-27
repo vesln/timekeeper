@@ -16,6 +16,23 @@ Provides `travel` and `freeze` functionality for your Node.js tests.
 - Please note, that if you are using time freezing, `setTimeout` and
   `setInterval` won't work as expected, since they are using the `Date`
   class, but the time will not change until you call `timekeeper#reset`.
+- When using `mocha-webpack --watch`, ensure you are cleaning up after tests run, otherwise it will enter an inifinite re-run. Example:
+
+```js
+var tk = require('timekeeper');
+
+describe('My suite', function() {
+  beforeEach(function() {
+    tk.freeze(new Date('2000-01-01T00:00:00.000Z'));
+  });
+  it('my test using date', function() {
+    // asertions
+  });
+  afterEach(function() {
+    tk.reset();
+  });
+});
+```
 
 ## Installation
 
