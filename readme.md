@@ -1,20 +1,12 @@
 # timekeeper
-[![travis][travis-image]][travis-url]
-[![npm][npm-image]][npm-url]
 
-[travis-image]: https://travis-ci.org/vesln/timekeeper.svg?branch=master
-[travis-url]: https://travis-ci.org/vesln/timekeeper
-
-[npm-image]: https://img.shields.io/npm/v/timekeeper.svg?style=flat
-[npm-url]: https://npmjs.org/package/timekeeper
-
-This module mocks `Date` and `Date.now` in order to help you test time-dependent code.
-Provides `travel` and `freeze` functionality for your Node.js tests.
+This module mocks `Date` and `Date.now` in order to help you test time-dependent code. It provides `travel` and `freeze` functionality for your Node.js tests.
 
 ## Installation
 
-- NPM: `npm install timekeeper --save-dev`
-- Bower: `bower install timekeeper`
+```sh
+npm install --save-dev timekeeper
+```
 
 ## Synopsis
 
@@ -44,14 +36,12 @@ var time = new Date(1893448800000); // January 1, 2030 00:00:00
 tk.travel(time); // Travel to that date.
 
 setTimeout(function() {
+  // `time` + ~500 ms.
 
-	// `time` + ~500 ms.
+  var date = new Date;
+  var ms = Date.now();
 
-	var date = new Date;
-	var ms = Date.now();
-
-	tk.reset(); // Reset.
-
+  tk.reset(); // Reset.
 }, 500);
 ```
 
@@ -68,19 +58,6 @@ tk.travel(time);
 assertTrue(tk.isKeepingTime());
 ```
 
-## Requirements
-
-- npm (http://npmjs.org/)
-- Node.js (http://nodejs.org/)
-
-## Tests
-
-```
-$ cd timekeeper
-$ npm install
-$ npm test
-```
-
 ## Credits
 
 Inspired by the [timecop](https://github.com/travisjeffery/timecop) ruby gem.
@@ -90,6 +67,7 @@ Inspired by the [timecop](https://github.com/travisjeffery/timecop) ruby gem.
 MIT License
 
 Copyright (C) 2012 Veselin Todorov
+Copyright (C) 2018, 2019, 2023 Linus Unnebäck
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
