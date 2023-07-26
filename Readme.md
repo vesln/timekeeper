@@ -81,16 +81,6 @@ $ npm install
 $ make test
 ```
 
-## Releases
-For maintainers only. `mversion` is used as a substitute for `npm version` to
-simultaneously bump `package.json` and `bower.json`, create a new commit,
-and a version tag at the new commit.
-```
-$ mversion <patch | minor | major>
-$ git push --follow-tags
-$ npm publish
-```
-
 ## Credits
 
 Inspired by the [timecop](https://github.com/travisjeffery/timecop) ruby gem.

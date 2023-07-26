@@ -12,12 +12,10 @@
     "Oleg Slobodskoi <oleg008@gmail.com>",
     "Guilherme Tramontina <guilherme.tramontina@gmail.com>"
   ],
-  "dependencies": {},
   "devDependencies": {
     "chai": "^1.9.2",
     "mocha": "^2.0.1",
-    "mocha-phantomjs": "^4.0.2",
-    "mversion": "^1.10.1"
+    "mocha-phantomjs": "^4.0.2"
   },
   "repository": {
     "type": "git",
