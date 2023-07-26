@@ -1,13 +1,1 @@
-node_modules/
-*._
-*.tmp
-.monitor
-*.diff
-*.err
-*.orig
-*.rej
-*.swo
-*.swp
-*.vi
-*~
-.DS_Store
+/node_modules/
