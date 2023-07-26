@@ -11,12 +11,6 @@
 This module mocks `Date` and `Date.now` in order to help you test time-dependent code.
 Provides `travel` and `freeze` functionality for your Node.js tests.
 
-## Features/problems
-
-- Please note, that if you are using time freezing, `setTimeout` and
-  `setInterval` won't work as expected, since they are using the `Date`
-  class, but the time will not change until you call `timekeeper#reset`.
-
 ## Installation
 
 - NPM: `npm install timekeeper --save-dev`
