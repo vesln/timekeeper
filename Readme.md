@@ -78,7 +78,7 @@ assertTrue(tk.isKeepingTime());
 ```
 $ cd timekeeper
 $ npm install
-$ make test
+$ npm test
 ```
 
 ## Credits

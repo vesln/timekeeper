@@ -23,7 +23,9 @@
   },
   "homepage": "http://github.com/vesln/timekeeper",
   "scripts": {
-    "test": "make test"
+    "test": "npm run test:browser && npm run test:node",
+    "test:browser": "mocha-phantomjs test/index.html",
+    "test:node": "mocha --require test/node.support.js test/*.test.js"
   },
   "main": "./lib/timekeeper.js",
   "bugs": {
